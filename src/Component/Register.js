@@ -9,13 +9,13 @@ class Register extends Component{
         this.onOpenModal = this.onOpenModal.bind(this);
         this.onCloseModal = this.onCloseModal.bind(this);
         this.state = {
-        open: false,
+        open: false,  
         };
     }
     onOpenModal() {
         this.setState({ open: true });
       }
-     
+      
       onCloseModal() {
         this.setState({ open: false });
       }

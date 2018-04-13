@@ -5,15 +5,18 @@ import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import Login from "./Container/Login";
 import Home from "./Container/Home";
-import { rootReducer } from "./reducer";
+import rootReducer from "./reducer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import createBrowserHistory from "history/createBrowserHistory";
-import {combineForms} from 'react-redux-form';
+import {combineForms,createForms} from 'react-redux-form';
 
 const history = createBrowserHistory();
-const store = createStore(combineForms({
-  user: {},
-}));
+
+const reducer = combineReducers({
+  root: rootReducer,
+  ...createForms({userform:''})
+});
+const store = createStore(reducer);
 
 class App extends Component {
   render() {

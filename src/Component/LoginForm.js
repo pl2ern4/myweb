@@ -5,21 +5,21 @@ const require = str => {
     return str!=undefined && str.trim()!==''
 }
 class LoginForm extends Component {
+    
   handleSubmit(val) {
-    console.log(val);
+    console.log("Submit",val,this.props);
+   // return false;
+      this.props.submitForm(val);
   }
   validate(str,ref){
-    console.log(str,ref);
+    // console.log(str,ref);
+    return true;
   }
   render() {
     return (
       <Form 
-        model="user" 
+        model="userform" 
         onSubmit={(val) => this.handleSubmit(val)}
-        validators={{
-            'userid':(val)=>this.validate(val,this),
-            'password':(val)=>this.validate(val,this)
-        }}
       >
         <Field  model=".userid" refs="userid">
              <Control.text model=".userid"/>

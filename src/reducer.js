@@ -1,9 +1,12 @@
 import {combineReducers } from 'redux';
+import constants from './contant';
 import * as action from './action';
+import {login} from './api';
 
-const initialstate = {data:''}
+const initialstate = {data:""}
 const loginReducer = (state = initialstate, action)=> {
     console.log("reducer",state,action);
+    let data = login();
     return {
         ...state,
         action
@@ -11,6 +14,7 @@ const loginReducer = (state = initialstate, action)=> {
 }
 
 
-export const rootReducer = combineReducers ({
+const rootReducer = combineReducers ({
     login:loginReducer
 });
+export default rootReducer;
