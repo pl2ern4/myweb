@@ -1,3 +1,6 @@
+body, html {
+  height: 100%;
+}
 .App {
   text-align: center;
 }
@@ -21,8 +24,67 @@
 .App-intro {
   font-size: large;
 }
+form > div{
+  margin: 2em 0 0 0;
+}
+input {
+  border: none;
+}
+input:focus{
+    outline: none; 
+    /* border: 0;  */
+    box-shadow: none; 
+}
+.error {
+  color: red;
+  font-size: small;
+  font-family: serif;
+}
+.form{
+  border: 1px solid gray;
+  width: 18em;
+  height: 3em;
+  display: grid;
+  align-items: center;
+}
+
+form>button{
+  margin: 1em 0 0 0;
+  width: 18em;
+  height: 3em;
+}
+.col-sm-8{
+  padding: 0;
+}
+.col-sm-4{
+  padding: 1vh;
+  margin-top: 20vh;
+}
+img.image {
+  max-width: 100%;
+}
+html{
+  overflow-x: hidden;
+}
+.btn.btn-primary{
+  width: 18em;
+  margin: 1em 0 0 0;
+  height: 3em;
+}
+img.image{ 
+  height: 100vh; 
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Modal-modal-0-1-3{
+  width: 35em;
+  padding: 1.2rem 1.2rem 1.2rem 11.2rem;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+

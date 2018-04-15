@@ -8,24 +8,26 @@ import Home from "./Container/Home";
 import rootReducer from "./reducer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import createBrowserHistory from "history/createBrowserHistory";
-import {combineForms,createForms} from 'react-redux-form';
+import {createForms} from 'react-redux-form';
 
 const history = createBrowserHistory();
 
 const reducer = combineReducers({
   root: rootReducer,
-  ...createForms({userform:''})
+  ...createForms({userform:'',user_register:''})
 });
 const store = createStore(reducer);
-
+let store1 = store.getState();
 class App extends Component {
   render() {
+    
+    debugger;
     return (
       <Provider store={store}>
         <Router history={history}>
           <div>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/Home" component={Home} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
           </div>
         </Router>
       </Provider>
