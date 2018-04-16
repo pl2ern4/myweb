@@ -69,7 +69,7 @@ class Register extends Component{
                             <Field model=".userid" refs="userid"  >
                                 <Control.text model=".userid" className="form" autoComplete="off" name="userid" placeholder={"User Id"} validators={{ isRequired }}/>
                                 <Errors className="error" model=".userid"
-                                    show={{touched: true, focus: false}}
+                                    show={{touched: true, focus: false, submit:true}}
                                     messages={{
                                         isRequired: 'Please Enter Proper User ID'
                                     }}
@@ -105,7 +105,7 @@ class Register extends Component{
                                 />
                             </Field>
                             <Field model=".email">
-                                <Control.text className="form" type="text" model=".email" autoComplete="off" placeholder={"Email Id"} validators={{isRequired,isValidEmailId}} validateOn="change"/>
+                                <Control className="form" type="email" model=".email" autoComplete="off" placeholder={"Email Id"} validators={{isRequired,isValidEmailId}} validateOn="change"/>
                                 <Errors className="error" model=".email" messages={{
                                     isRequired: 'Field must not be Empty',
                                     isValidEmailId: 'Please Enter Valid Email Id'

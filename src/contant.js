@@ -4,7 +4,8 @@ const constants= {
     GETDATA:'GETDATA',
     LOAD_SUCCESS:'LOAD_SUCCESS',
     REG_USER_REQUEST:'REG_USER_REQUEST',
-    LOGIN_STATUS:'LOGIN_STATUS'
+    LOGIN_STATUS:'LOGIN_STATUS',
+    LOGOUT:'LOGOUT'
 };
 
 export default constants;

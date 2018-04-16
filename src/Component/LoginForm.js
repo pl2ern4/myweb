@@ -1,15 +1,18 @@
 import React,{Component} from 'react';
-import { Control, Form,Field } from 'react-redux-form';
-// const require = str => {
-//     return str!=undefined && str.trim()!==''
-// }
+import { Control, Form,Field,Errors } from 'react-redux-form';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import TextField from 'material-ui/TextField';
+
+const isRequired = (val) => val && val.trim() && val.trim().length > 0;
+
 class LoginForm extends Component {
     
   handleSubmit(val) {
       this.props.submitForm(val);
-     // window.location = window.location.href+"home";
+      window.location = window.location.origin;
   }
-  validate(str,ref){
+  validate(str){
+    console.log("---",str);
     return true;
   }
   render() {
@@ -17,14 +20,33 @@ class LoginForm extends Component {
       <Form 
         model="userform" 
         onSubmit={(val) => this.handleSubmit(val)}
+        onBeforeSubmit={(evt)=>{this.validate(evt)}}
       >
-        <Field className="form password"  model=".userid" refs="userid">
-            <Control.text model=".userid" className="inputText" autoComplete="off" name="userid" placeholder={"User Id"}/>
-            
+        <Field model=".userid">
+          <Control.text className="blocking-span form inputText" model=".userid" autoComplete="off" name="userid" placeholder={"User Id"} validators={{ isRequired }}/>
+          <span className="floating-label">Your email address</span>
+          <Errors className="error" model=".userid"
+                show={{touched: true, focus: false}}
+                messages={{
+                    isRequired: 'Please Enter Correct User ID'
+                }}
+            />
+           {/* <div>
+              {/* <span class='blocking-span'>
+              <input type="text" class="inputText" />
+              </span>
+              <span class="floating-label">Your email address</span>
+            </div> */}
         </Field>
+        <Field model=".password">
+             <Control.text className="form password" type="password" model=".password"  autoComplete="off" placeholder={"password"} validators={{ isRequired }}/>
 
-        <Field  className="form password"  model=".password">
-             <Control.text type="password" model=".password"  autoComplete="off" placeholder={"password"}/>
+             <Errors className="error" model=".password"
+                show={{touched: true, focus: false}}
+                messages={{
+                    isRequired: 'Please Enter Password'
+                }}
+            />
         </Field>
   
         <button className="btn btn-danger">Submit!</button>
@@ -33,5 +55,4 @@ class LoginForm extends Component {
   }
 }
 
-// No need to connect()!
 export default LoginForm;

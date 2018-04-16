@@ -41,4 +41,18 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script>
+    $(function(){
+      $('input').on('focus', function(){
+        $(this).parents('.parents-elm').addClass('foucs-content'); // When focus the input area
+      });
+      $(document).mouseup(function(e){
+        if($(e.target).parents('input').length==0 && !$(e.target).is('input')){
+          $('.parents-elm').removeClass('foucs-content');
+        }
+      });
+    });
+  </script>
 </html>

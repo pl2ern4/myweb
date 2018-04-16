@@ -6,9 +6,13 @@ import { Provider } from "react-redux";
 import Login from "./Container/Login";
 import Home from "./Container/Home";
 import rootReducer from "./reducer";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route,Redirect,withRouter } from "react-router-dom";
 import createBrowserHistory from "history/createBrowserHistory";
 import {createForms} from 'react-redux-form';
+import {getCookie} from './utility';
+import * as action from './action';
+import { connect } from 'react-redux';
+
 
 const history = createBrowserHistory();
 
@@ -16,18 +20,26 @@ const reducer = combineReducers({
   root: rootReducer,
   ...createForms({userform:'',user_register:''})
 });
+
 const store = createStore(reducer);
-let store1 = store.getState();
+
 class App extends Component {
+
+  componentWillMount(){
+    //dispatch(action.requestLogin(data));
+  }
   render() {
+    let isLoggedIn = getCookie('userLogin');
     
-    debugger;
     return (
       <Provider store={store}>
         <Router history={history}>
           <div>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
+              <Route exact path="/" render={(props) =>(
+                !!isLoggedIn ? ( <Route  component={Home} />)
+                : ( <Redirect to={{ pathname: '/login', state: { from: props.location } }} />)
+              )} />
+              <Route exact path="/login" component={Login} />
           </div>
         </Router>
       </Provider>
