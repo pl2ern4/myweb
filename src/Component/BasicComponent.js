@@ -1,7 +1,14 @@
 import React from 'react';
 
+export const WelcomeComponent =payload =>{
+    console.log("payload===",payload);
+    let d = new Date();
+
+    return (
+        <div className="welcome-text">Welcome</div>
+    )
+}
 export const Header =payload =>{
-    console.log("payload",payload);
     return (
         <div className="header">
             <nav>
@@ -9,17 +16,13 @@ export const Header =payload =>{
                     <li>
                         Hi <span className="user_name">User</span>
                     </li>
-                    <li>
-                        <button type="button" onClick={payload.handleLogOut}>logout</button>
-                    </li>
                 </ul>
             </nav>
         </div>
     )
 }
 
-export const Footer =payload =>{
-    console.log("payload",payload);
+export const Footer = payload =>{
     let d = new Date();
 
     return (

@@ -1,8 +1,9 @@
 import React, {Component,Fragment} from 'react';
 import * as action from '../action';
 import { connect } from 'react-redux';
-import {Header,Footer} from '../Component/header';
-// import Content from '../Component/Content';
+import {Header,Footer} from '../Component/BasicComponent';
+import UserMenu from '../Component/UserMenu';
+import Content from '../Component/Content';
 
 class Home extends Component{
 
@@ -29,7 +30,8 @@ class Home extends Component{
         return (
             <Fragment>
                 <Header handleLogOut={this.logOut}/>
-                {/* <Content/> */}
+                <UserMenu  handleLogOut={this.logOut}/>
+                <Content/>
                 <Footer/>
             </Fragment> 
         )

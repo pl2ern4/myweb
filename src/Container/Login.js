@@ -3,6 +3,7 @@ import * as action from '../action';
 import { connect } from 'react-redux';
 import LoginForm from '../Component/LoginForm';
 import Register from '../Component/Register';
+import Divider from 'material-ui/Divider';
 
 class Login extends Component{
     constructor(props){
@@ -28,7 +29,9 @@ class Login extends Component{
                         <img alt="banner-image" className="image" src="https://www.anz.com.au/content/anzcomau/en/target/homepage/hero-banners/bank-accounts/sem-mta-row-beach-plane-new/_jcr_content/anz_default_par/hero_0/image.img.full.high.jpg/1500360462483.jpg"/>
                     </div>
                     <div className="col-sm-4">
+                        <span className="signin">Sign In</span>
                         <LoginForm submitForm={this.submitForm}/>
+                        <hr className="hr-text" data-content="OR"/> 
                         <Register form={props.user_register} handleSubmit={this.handleSubmit}/>
                     </div>
                 </div>)

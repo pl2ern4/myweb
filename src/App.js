@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import logo from './logo.svg';
 import "./App.css";
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
@@ -24,10 +23,6 @@ const reducer = combineReducers({
 const store = createStore(reducer);
 
 class App extends Component {
-
-  componentWillMount(){
-    //dispatch(action.requestLogin(data));
-  }
   render() {
     let isLoggedIn = getCookie('userLogin');
     

@@ -23,20 +23,13 @@ class LoginForm extends Component {
         onBeforeSubmit={(evt)=>{this.validate(evt)}}
       >
         <Field model=".userid">
-          <Control.text className="blocking-span form inputText" model=".userid" autoComplete="off" name="userid" placeholder={"User Id"} validators={{ isRequired }}/>
-          <span className="floating-label">Your email address</span>
+          <Control.text className="form" model=".userid" autoComplete="off" name="userid" placeholder={"User Id"} validators={{ isRequired }}/>
           <Errors className="error" model=".userid"
                 show={{touched: true, focus: false}}
                 messages={{
                     isRequired: 'Please Enter Correct User ID'
                 }}
             />
-           {/* <div>
-              {/* <span class='blocking-span'>
-              <input type="text" class="inputText" />
-              </span>
-              <span class="floating-label">Your email address</span>
-            </div> */}
         </Field>
         <Field model=".password">
              <Control.text className="form password" type="password" model=".password"  autoComplete="off" placeholder={"password"} validators={{ isRequired }}/>
